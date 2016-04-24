@@ -34,14 +34,14 @@ REGEXP_4_REPL = ''
 # a,b,c d,e,f      ---> a_b_c_d_e_f
 # abc!@#a          ---> abc___a
 # abc!@#,./abc abc ---> abc______abc_abc
-REGEXP_5 = '[^a-z]'
+REGEXP_5 = '\W'
 REGEXP_5_REPL = '_'
 
 # a abc aa bb  ---> a aa bb
 # a def dd fd  ---> a dd fd
 # x xy xyz yz  ---> x xy yz
 # x xyz xyz yz ---> x yz
-REGEXP_6 = '[a-z][a-z]{2,100}'
+REGEXP_6 = '([ ][a-z]{3})*'
 REGEXP_6_REPL = ''
 
 # AabcdZ ---> abcd
@@ -49,18 +49,18 @@ REGEXP_6_REPL = ''
 # aAbZcd ---> aAbZcd
 # AabcdY ---> abcdY
 # BabcdZ ---> Babcd
-REGEXP_7 = ''
+REGEXP_7 = '\AA|Z\Z'
 REGEXP_7_REPL = ''
 
 # a b c  ---> a b c
 # a  b c ---> a b c
 # d    f ---> d f
-REGEXP_8 = ''
-REGEXP_8_REPL = ''
+REGEXP_8 = '[ ]{1,100}'
+REGEXP_8_REPL = ' '
 
 # a ab abc abcd ab ---> a ab ab
 # a xyz xyz a      ---> a a
 # d xy xyza a      ---> d xy a
 # a xyzzy b        ---> a xyzzy b
-REGEXP_9 = ''
+REGEXP_9 = '[a-d]{3,4}[ ]|xyz |xyza '
 REGEXP_9_REPL = ''
